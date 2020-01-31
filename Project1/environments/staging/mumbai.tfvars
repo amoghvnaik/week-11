@@ -1,0 +1,7 @@
+environment = "staging"
+region = "ap-south-1"
+ami_id = "ami-0a2a94baf8854e9ee"
+recurrence = "30 2-22 * * *"
+recurrence_start = "30 2 * * *"
+recurrence_end = "30 22 * * *"
+cloud = "cron(30 2 * * ? *)"

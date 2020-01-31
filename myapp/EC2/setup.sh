@@ -1,3 +1,3 @@
 #!/bin/bash
-cd ~/bookreviewsrepo/
+cd /home/ubuntu/bookreviewsrepo/
 docker-compose up -d --build

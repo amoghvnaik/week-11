@@ -6,6 +6,8 @@ provider "aws" {
 
 module "aws_vpc" {
   source = "./VPC"
+  environment = var.environment
+  region = var.region
 }
 
 module "aws_webserver_sg" {
@@ -13,6 +15,8 @@ module "aws_webserver_sg" {
   name          = "WebServerSG"
   vpc_id        = module.aws_vpc.vpc_id
   ingress_ports = [22, 80]
+  environment = var.environment
+  region = var.region
 }
 
 module "webserver_node" {
@@ -24,7 +28,18 @@ module "webserver_node" {
   subnets =  [module.aws_vpc.public_subnetA_id, module.aws_vpc.public_subnetB_id]
   security_groups =  module.aws_webserver_sg.aws_wsg_id
   vpc_id = module.aws_vpc.vpc_id
+  environment = var.environment
+  region = var.region
+  image-id = var.ami_id
+  recurrence_start = var.recurrence_start
+  recurrence_end = var.recurrence_end
 
 }
 
-
+module "lambda" {
+  source = "./lambda"
+  environment = var.environment
+  region = var.region
+  cloud = var.cloud
+}
+ 

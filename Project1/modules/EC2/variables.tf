@@ -1,5 +1,7 @@
-variable "name" {
-  default = "main"
+variable "environment" {
+}
+
+variable "region" {
 }
 
 variable "image-id" {
@@ -37,4 +39,10 @@ variable "security_groups" {
 }
 
 variable "vpc_id" {
+}
+
+variable "recurrence_start" {
+}
+
+variable "recurrence_end" {
 }

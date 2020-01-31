@@ -1,0 +1,6 @@
+environment = "development"
+region = "eu-west-2"
+ami_id = "ami-0e49551fc78560451"
+recurrence_start = "0 9 * * *"
+recurrence_end = "0 17 * * *"
+cloud = "cron(0 9 * * ? *)"

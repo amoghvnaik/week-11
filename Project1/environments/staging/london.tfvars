@@ -1,0 +1,6 @@
+environment = "staging"
+region = "eu-west-2"
+ami_id = "ami-00b3184b502428cd0"
+recurrence_start = "0 9 * * *"
+recurrence_end = "0 17 * * *"
+cloud = "cron(0 9 * * ? *)"
