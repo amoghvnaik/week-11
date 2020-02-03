@@ -45,4 +45,12 @@ resource "aws_route_table" "vpc_rt" {
   }
 }
 
+resource "aws_route_table_association" "pub_subA_rta" {
+  subnet_id      = aws_subnet.publicA.id
+  route_table_id = aws_route_table.vpc_rt.id
+}
 
+resource "aws_route_table_association" "pub_subB_rta" {
+  subnet_id      = aws_subnet.publicB.id
+  route_table_id = aws_route_table.vpc_rt.id
+}

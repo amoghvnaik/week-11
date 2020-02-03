@@ -1,20 +1,21 @@
+data "template_file" "setup" {
+  template = var.file
+
+}
+
 resource "aws_launch_configuration" "main" {
   image_id               = var.image-id
   instance_type          = var.instance-type
   key_name               = var.pem-key
   security_groups = var.vpc_security_group_ids
- 
+  user_data = data.template_file.setup.rendered
+
 
   lifecycle {
     create_before_destroy = true
   }
 
   associate_public_ip_address = var.associate_public_ip_address
-
-}
-
-  data "template_file" "setup" {
-    template = var.file
 
 }
 
